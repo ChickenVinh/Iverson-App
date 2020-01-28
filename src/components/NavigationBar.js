@@ -1,5 +1,6 @@
 import React from 'react';
 import Logo from './images/logo.png';
+import { Route, Link } from 'react-router-dom';
 
 class NavigationBar extends React.Component{
     render(){
@@ -9,7 +10,7 @@ class NavigationBar extends React.Component{
                 <p className='iverson'>Iverson</p>
                 <div className='menue'>
                 <div>
-                    <a href='/interface.php'>Home</a>
+                    <Link to = '/interface.php'>Home</Link>
                 </div>
                 <div className='dropdown'>
                     <button className='dropButton'>Antenna
@@ -19,7 +20,7 @@ class NavigationBar extends React.Component{
                     <div className='dropdownContent'>
                         <a href='#'>add</a>
                         <a href='/antenna/map.php'>map</a>
-                        <a href='/antenna/list.php'>list</a>
+                        <Link to = 'router_test'>list</Link>
                     </div>
                 </div>
                 <div className='dropdown'>

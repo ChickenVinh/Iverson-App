@@ -30,6 +30,7 @@ export default class Table extends React.Component {
     render() {
         return(
             <div className='table-component'>
+                <h1>Hello Router</h1>
                 <table className='table'>
                     <thead>
                         <tr>{this.getHeader()}</tr>

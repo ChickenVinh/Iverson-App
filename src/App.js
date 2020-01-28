@@ -2,7 +2,8 @@ import React from 'react';
 import './App.css';
 import NavigationBar from './components/NavigationBar';
 import Table from './components/Table';
-
+import { Route } from 'react-router-dom';
+import RouterTest from './components/RouterTest'
 
 class App extends React.Component {
   constructor(props) {
@@ -27,7 +28,10 @@ class App extends React.Component {
     return (
       <div className="App">
         <NavigationBar />
-        <Table data = {this.state.data}/>
+        {/*<Route path = "/antennaTable" component = {Table data = this.state.data} />*/}
+        {/*<Table data = {this.state.data}/>*/}
+        <h1>Home</h1>
+        <Route path = "/router_test" component = {RouterTest} />
       </div>
     );
   }
