@@ -1,15 +1,18 @@
 import React from 'react';
 
-export default class Table extends React.Component {
+export default class TableUser extends React.Component {
     constructor(props) {
         super(props);
+        this.state = {
+            data : [{}]
+         };
         this.getKeys = this.getKeys.bind(this);
         this.getHeader = this.getHeader.bind(this);
         this.getRowsData = this.getRowsData.bind(this);
     }
     
     getKeys = function() {
-        return Object.keys(this.props.data[0]);
+        return Object.keys(this.state.data[0]);
     }
 
     getHeader = function() {
@@ -20,17 +23,26 @@ export default class Table extends React.Component {
     }
 
     getRowsData = function() {
-        var items = this.props.data;
+        var items = this.state.data;
         var keys = this.getKeys();
         return items.map((row, index) => {
             return <tr key = {index}><RenderRow key = {index} data = {row} keys = {keys} /></tr>
         });
     }
 
+    componentDidMount() {
+        fetch('https://jsonplaceholder.typicode.com/albums')
+      .then((response) => {
+        return response.json()})
+        .then((json) => {
+          console.log(json);
+          this.setState({data : json});
+        })
+    }
+
     render() {
         return(
             <div className='table-component'>
-                <h1>Hello Router</h1>
                 <table className='table'>
                     <thead>
                         <tr>{this.getHeader()}</tr>
@@ -43,8 +55,8 @@ export default class Table extends React.Component {
         );
     }
 }
-const RenderRow = (props) =>{
-    return props.keys.map((key, index)=>{
-        return <td key={props.data[key]}>{props.data[key]}</td>
+const RenderRow = (state) =>{
+    return state.keys.map((key, index)=>{
+        return <td key={state.data[key]}>{state.data[key]}</td>
     })
 }

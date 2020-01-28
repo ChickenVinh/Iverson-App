@@ -10,17 +10,17 @@ class NavigationBar extends React.Component{
                 <p className='iverson'>Iverson</p>
                 <div className='menue'>
                 <div>
-                    <Link to = '/interface.php'>Home</Link>
+                    <Link to = '.'>Home</Link>
                 </div>
                 <div className='dropdown'>
                     <button className='dropButton'>Antenna
                         <i className='arrowDown'></i>
                     </button>
 
-                    <div className='dropdownContent'>
-                        <a href='#'>add</a>
-                        <a href='/antenna/map.php'>map</a>
-                        <Link to = 'router_test'>list</Link>
+                    <div className = 'dropdownContent'>
+                        <Link to = 'add_antenna'>add</Link>
+                        <Link to = 'map_antenna'>map</Link>
+                        <Link to = 'table_antenna'>list</Link>
                     </div>
                 </div>
                 <div className='dropdown'>
@@ -28,12 +28,12 @@ class NavigationBar extends React.Component{
                         <i className='arrowDown'></i>
                     </button>
                     <div className='dropdownContent'>
-                        <a href='/user/new.php'>add</a>
-                        <a href='#'>confirm</a>
-                        <a href='/user/list.php'>list/search</a>
+                        <Link to='add_user'>add</Link>
+                        <Link to='confirm_user'>confirm</Link>
+                        <Link to='table_user'>list/search</Link>
                     </div>
                 </div>
-                <a href='/scripts/logout.php'>Logout</a>
+                <a href='#'>Logout</a>
             </div>
         </div>
         );
