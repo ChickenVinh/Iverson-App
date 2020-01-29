@@ -1,10 +1,6 @@
 import React from 'react';
 
 export default class AddAntenna extends React.Component {
-    constructor(props) {
-        super(props);
-    }
-    
 
     render() {
         return(

@@ -35,8 +35,8 @@ export default class TableUser extends React.Component {
       .then((response) => {
         return response.json()})
         .then((json) => {
-          console.log(json);
           this.setState({data : json});
+          console.log();
         })
     }
 
@@ -55,8 +55,8 @@ export default class TableUser extends React.Component {
         );
     }
 }
-const RenderRow = (state) =>{
-    return state.keys.map((key, index)=>{
-        return <td key={state.data[key]}>{state.data[key]}</td>
+const RenderRow = (props) =>{
+    return props.keys.map((key, index)=>{
+        return <td key={props.data[key]}>{props.data[key]}</td>
     })
 }

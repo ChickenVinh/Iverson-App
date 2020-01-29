@@ -1,14 +1,19 @@
 import React from 'react';
+import { Map, GoogleApiWrapper } from 'google-maps-react';
 
-export default class MapAntenna extends React.Component {
-    constructor(props) {
-        super(props);
-    }
-    
-
+class MapAntenna extends React.Component {
     render() {
         return(
-           <h1>Map Antenna</h1>
+            <Map 
+                google = { this.props.google }
+                zoom = { 6 }
+                style = {{ width: '100%', height: '100%' }}
+                initialCenter = {{ lat: 16, lng: 106.5 }}
+            />
         );
     }
 }
+
+export default GoogleApiWrapper({
+    apiKey: 'AIzaSyD6PobqAW5C0bNKG-FE4PKLbwfTY8XwQFs'
+}) (MapAntenna);
