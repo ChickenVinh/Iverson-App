@@ -1,5 +1,6 @@
 import React from 'react';
 import { Map, GoogleApiWrapper, Marker } from 'google-maps-react';
+import MarkerIcon from '../../components/images/marker.png';
 
 class MapAntenna extends React.Component {
     constructor(props){
@@ -16,10 +17,17 @@ class MapAntenna extends React.Component {
 
     displayMarkers = () => {
         return this.state.markers.map((marker, index) => {
-            return <Marker key = { index } id = { index } position = {{
-                lat: marker.lat,
-                lng: marker.lng
-            }}
+            return <Marker
+                        key = { index }
+                        id = { index }
+                        icon = {{ 
+                            url: MarkerIcon,
+                            scaledSize:  new this.props.google.maps.Size(25,25)
+                        }}
+                        position = {{
+                            lat: marker.lat,
+                            lng: marker.lng
+                        }}
             onClick = {() => console.log("Marker clicked!")} />
         })
     }
