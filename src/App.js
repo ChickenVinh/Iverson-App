@@ -1,39 +1,74 @@
 import React from 'react';
-import './App.css';
-import { Route } from 'react-router-dom';
+import './index.css';
+import Iverson from './Iverson';
+import LandingPage from './LandingPage';
 
-import NavigationBar from './components/NavigationBar';
-import Tickets from './components/Tickets'
+const sleep = time => new Promise(resolve => setTimeout(resolve, time))
 
-import AddAntenna from './components/Antenna/AddAntenna';
-import MapAntenna from './components/Antenna/MapAntenna';
-import TableAntenna from './components/Antenna/TableAntenna';
+const getUser = () => sleep(1000).
+//then(() => ({username: 'elmo'}))
+then(() => null)
 
-import AddUser from './components/User/AddUser';
-import ConfirmUser from './components/User/ConfirmUser';
-import TableUser from './components/User/TableUser';
+const AuthContext = React.createContext()
 
-class App extends React.Component {
-  constructor(props) {
-    super(props);
-  
-    this.state = {  };
-  }
+function AuthProvider({ children }){
+    
+    const [state, setState] = React.useState({
+        status: 'pending',
+        error: null,
+        user: null,
+    })
+    React.useEffect(() => {
+        getUser().then(
+            user => setState({ status: 'success', error: null, user }),
+            error => setState({ status: 'error', error, user: null }),
+        )
+    }, [])
 
-  render(){
-    return (
-      <div className = "App">
-        <NavigationBar />
-        <Route path = "/" exact component = { Tickets } />
-        <Route path = "/add_antenna" exact component = { AddAntenna } />
-        <Route path = "/map_antenna" exact component = { MapAntenna } />
-        <Route path = "/table_antenna" exact component = { TableAntenna } />
-        <Route path = "/add_user" exact component = { AddUser } />
-        <Route path = "/confirm_user" exact component = { ConfirmUser } />
-        <Route path = "/table_user" exact component = { TableUser } />
-      </div>
-    );
-  }
+    return(
+        <AuthContext.Provider value = { state }>
+            { state.status === 'pending' ? (
+                'Loading...'
+            ) : state.status === 'error' ? (
+            <div>
+                Oh no
+                <div>
+                    <pre>{state.error.message}</pre>
+                </div>
+            </div>
+            ) : (
+                children
+            )}
+        </AuthContext.Provider>
+    )
+}
+
+function useAuthState() {
+    const state = React.useContext(AuthContext)
+    const isPending = state.status === 'pending'
+    const isError = state.status === 'error'
+    const isSuccess = state.status === 'success'
+    const isAuthenticated = state.user && isSuccess
+    return {
+        ...state,
+        isPending,
+        isError,
+        isSuccess,
+        isAuthenticated,
+    }
+}
+
+function Home(){
+    const { user } = useAuthState();
+    return user ? <Iverson /> : <LandingPage />
+}
+
+function App(){
+    return(
+        <AuthProvider>
+            <Home />
+        </AuthProvider>
+    )
 }
 
 export default App;
