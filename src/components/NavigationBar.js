@@ -6,7 +6,7 @@ class NavigationBar extends React.Component{
     render(){
         return(
             <div className ='navigation-bar'>
-                <Link to = '.'>
+                <Link to = '/dashboard'>
                     <div className ='logo'>
                         <img alt='' className ='vtk' src={Logo} />
                     </div>
@@ -14,7 +14,7 @@ class NavigationBar extends React.Component{
                 <p className='iverson'>Iverson</p>
                 <div className='menue'>
                     <div>
-                        <Link to = '.'>Home</Link>
+                        <Link to = '/dashboard'>Home</Link>
                     </div>
                     <div className='dropdown'>
                         <button className='dropButton'>Antenna
@@ -22,9 +22,9 @@ class NavigationBar extends React.Component{
                         </button>
 
                         <div className = 'dropdownContent'>
-                            <Link to = 'add_antenna'>add</Link>
-                            <Link to = 'map_antenna'>map</Link>
-                            <Link to = 'table_antenna'>list</Link>
+                            <Link to = '/dashboard/add_antenna'>add</Link>
+                            <Link to = '/dashboard/map_antenna'>map</Link>
+                            <Link to = '/dashboard/table_antenna'>list</Link>
                         </div>
                     </div>
                     <div className='dropdown'>
@@ -32,9 +32,9 @@ class NavigationBar extends React.Component{
                             <i className='arrowDown'></i>
                         </button>
                         <div className='dropdownContent'>
-                            <Link to='add_user'>add</Link>
-                            <Link to='confirm_user'>confirm</Link>
-                            <Link to='table_user'>list/search</Link>
+                            <Link to='/dashboard/add_user'>add</Link>
+                            <Link to='/dashboard/confirm_user'>confirm</Link>
+                            <Link to='/dashboard/table_user'>list/search</Link>
                         </div>
                     </div>
                     <Link to = '.'>Logout</Link>
