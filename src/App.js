@@ -2,10 +2,11 @@ import React from 'react';
 import './index.css';
 import Iverson from './Iverson';
 import LandingPage from './LandingPage';
+import { WindMillLoading } from 'react-loadingg';
 
 const sleep = time => new Promise(resolve => setTimeout(resolve, time))
 
-const getUser = () => sleep(1000).
+const getUser = () => sleep(3000).
 //then(() => ({username: 'elmo'}))
 then(() => null)
 
@@ -28,7 +29,7 @@ function AuthProvider({ children }){
     return(
         <AuthContext.Provider value = { state }>
             { state.status === 'pending' ? (
-                'Loading...'
+                <WindMillLoading />
             ) : state.status === 'error' ? (
             <div>
                 Oh no
