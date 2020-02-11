@@ -1,22 +1,21 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Auth from './Auth';
-
+import Cookies from 'js-cookie';
 
 class Login extends React.Component {
     constructor(props){
         super(props);
         this.login=this.login.bind(this);
-        this.logout=this.logout.bind(this);
     }
 
     login(){
         Auth.authenticate();
-        console.log(Auth.getAuth())
     }
 
-    logout(){
-        Auth.signout();
+    componentDidMount(){
+        //deletes cookie when login page is opened
+        Cookies.remove('user');
     }
     
     render(){

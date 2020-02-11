@@ -3,7 +3,7 @@ import './App.css';
 import { Route } from 'react-router-dom';
 
 import NavigationBar from './components/NavigationBar';
-import Tickets from './components/Tickets'
+import Dashboard from './components/Dashboard'
 
 import AddAntenna from './components/Antenna/AddAntenna';
 import MapAntenna from './components/Antenna/MapAntenna';
@@ -13,11 +13,11 @@ import AddUser from './components/User/AddUser';
 import ConfirmUser from './components/User/ConfirmUser';
 import TableUser from './components/User/TableUser';
 
-const Dashboard = () => {
+const LandingPage = () => {
     return (
       <div>
         <NavigationBar />
-        <Route path = "/dashboard" exact component = { Tickets } />
+        <Route path = "/dashboard" exact component = { Dashboard } />
         <Route path = "/dashboard/add_antenna" exact component = { AddAntenna } />
         <Route path = "/dashboard/map_antenna" exact component = { MapAntenna } />
         <Route path = "/dashboard/table_antenna" exact component = { TableAntenna } />
@@ -28,4 +28,4 @@ const Dashboard = () => {
     );
 }
 
-export default Dashboard;
+export default LandingPage;

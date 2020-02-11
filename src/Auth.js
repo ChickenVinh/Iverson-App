@@ -1,13 +1,22 @@
+import Cookies from 'js-cookie'
+
 const Auth = {
-    isAuthenticated: false,
     authenticate() {
+      Cookies.set('user', 'user')
+      //connect to server
+      //check credentials
+      //create cookie
+      //change is authenticated
+      //refresh
       this.isAuthenticated = true;
     },
-    signout() {
-      this.isAuthenticated = false;
-    },
     getAuth() {
-        return this.isAuthenticated;
+        const user = Cookies.get('user');
+        if(user){
+          return true;
+        }else{
+          return false;
+        }
       }
   };
 

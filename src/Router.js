@@ -1,13 +1,13 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
-import Dashboard from './Dashboard';
+import LandingPage from './LandingPage';
 import Login from './Login';
 import Auth from './Auth';
 
 const Router = (props) => (
     <Switch>
         <Route exact path = '/' component = {Login} />
-        <PrivateRoute path = '/dashboard' component = {Dashboard} />
+        <PrivateRoute path = '/dashboard' component = {LandingPage} />
     </Switch>
 )
 

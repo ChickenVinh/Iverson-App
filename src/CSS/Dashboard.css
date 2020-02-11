@@ -1,0 +1,23 @@
+.component-row{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+    
+/* Table */
+.ticket_table{
+    text-align: center;
+    width: 50%;
+}
+
+.ticket_table thead th{
+    background-color: #91BED4;
+}
+
+.ticket_table tbody tr{
+    background-color: #D9E8F5;
+}
+
+.ticket_table tbody tr:hover{
+    background-color: #F26101;
+}

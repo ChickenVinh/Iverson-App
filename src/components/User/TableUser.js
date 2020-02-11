@@ -36,7 +36,6 @@ export default class TableUser extends React.Component {
         return response.json()})
         .then((json) => {
           this.setState({data : json});
-          console.log();
         })
     }
 
