@@ -17,13 +17,13 @@ const LandingPage = () => {
     return (
       <div>
         <NavigationBar />
-        <Route path = "/dashboard" exact component = { Dashboard } />
-        <Route path = "/dashboard/add_antenna" exact component = { AddAntenna } />
-        <Route path = "/dashboard/map_antenna" exact component = { MapAntenna } />
-        <Route path = "/dashboard/table_antenna" exact component = { TableAntenna } />
-        <Route path = "/dashboard/add_user" exact component = { AddUser } />
-        <Route path = "/dashboard/confirm_user" exact component = { ConfirmUser } />
-        <Route path = "/dashboard/table_user" exact component = { TableUser } />
+          <Route path = "/dashboard" exact component = { Dashboard } />
+          <Route path = "/dashboard/add_antenna" exact component = { AddAntenna } />
+          <Route path = "/dashboard/map_antenna" exact component = { MapAntenna } />
+          <Route path = "/dashboard/table_antenna" exact component = { TableAntenna } />
+          <Route path = "/dashboard/add_user" exact component = { AddUser } />
+          <Route path = "/dashboard/confirm_user" exact component = { ConfirmUser } />
+          <Route path = "/dashboard/table_user" exact component = { TableUser } />
       </div>
     );
 }

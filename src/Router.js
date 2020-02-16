@@ -4,7 +4,7 @@ import LandingPage from './LandingPage';
 import Login from './Login';
 import Auth from './Auth';
 
-const Router = (props) => (
+const Router = () => (
     <Switch>
         <Route exact path = '/' component = {Login} />
         <PrivateRoute path = '/dashboard' component = {LandingPage} />

@@ -37,7 +37,7 @@ class NavigationBar extends React.Component{
                             <Link to='/dashboard/table_user'>list/search</Link>
                         </div>
                     </div>
-                    <Link to = '.'>Logout</Link>
+                    <Link to = './'>Logout</Link>
                 </div>
             </div>
         );

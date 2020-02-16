@@ -31,7 +31,7 @@ export default class TableAntenna extends React.Component {
     }
 
     componentDidMount() {
-        fetch('http://gastroconsultung-catering.com/getAntenna.php')
+        fetch('http://vtk-group.tech/scripts/getAntenna.php')
       .then((response) => {
         return response.json()})
         .then((json) => {

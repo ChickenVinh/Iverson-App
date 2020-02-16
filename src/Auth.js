@@ -2,12 +2,8 @@ import Cookies from 'js-cookie'
 
 const Auth = {
     authenticate() {
+      //send cre to server and validate
       Cookies.set('user', 'user')
-      //connect to server
-      //check credentials
-      //create cookie
-      //change is authenticated
-      //refresh
       this.isAuthenticated = true;
     },
     getAuth() {

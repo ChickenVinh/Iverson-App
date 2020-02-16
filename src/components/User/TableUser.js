@@ -33,7 +33,7 @@ export default class TableUser extends React.Component {
     componentDidMount() {
         fetch('https://jsonplaceholder.typicode.com/albums')
       .then((response) => {
-        return response.json()})
+        response.json()})
         .then((json) => {
           this.setState({data : json});
         })
