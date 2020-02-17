@@ -32,6 +32,7 @@ class RequestMap extends React.Component {
                 center: {lat: this.props.data.new_lat, lng: this.props.data.new_lng}
             }
             this.setState(data)
+            console.log(data)
         }
       }
 
