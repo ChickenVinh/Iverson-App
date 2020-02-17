@@ -37,7 +37,7 @@ class MapAntenna extends React.Component {
             <Map 
                 google = { this.props.google }
                 zoom = { 6 }
-                style = {{ width: '100%', height: '100%' }}
+                style = {{ width: `100%`, height: `100%`, position: `absolute` }}
                 initialCenter = {{ lat: 16, lng: 106.5 }}
             >
                {this.displayMarkers()}  

@@ -22,7 +22,7 @@ class NavigationBar extends React.Component{
                         </button>
 
                         <div className = 'dropdownContent'>
-                            <Link to = '/dashboard/add_antenna'>add</Link>
+                            <Link to = '/dashboard/confirm_antenna'>Confirm GPS</Link>
                             <Link to = '/dashboard/map_antenna'>map</Link>
                             <Link to = '/dashboard/table_antenna'>list</Link>
                         </div>
@@ -37,7 +37,7 @@ class NavigationBar extends React.Component{
                             <Link to='/dashboard/table_user'>list/search</Link>
                         </div>
                     </div>
-                    <Link to = '.'>Logout</Link>
+                    <Link to = './'>Logout</Link>
                 </div>
             </div>
         );

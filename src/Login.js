@@ -1,34 +1,53 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, {useState, useEffect} from 'react';
 import Auth from './Auth';
 import Cookies from 'js-cookie';
 
-class Login extends React.Component {
-    constructor(props){
-        super(props);
-        this.login=this.login.bind(this);
-    }
+const Login = (props) => {
+        const [email, setEmail] = useState('')
+        const [password, setPassword] = useState('')
 
-    login(){
-        Auth.authenticate();
-    }
+        useEffect(() => {
+            Cookies.remove('user');
+        }, [])
 
-    componentDidMount(){
-        //deletes cookie when login page is opened
-        Cookies.remove('user');
-    }
-    
-    render(){
-        return(
-            <div>
-                <Link to='/'>Home</Link><br/>
-                <Link to='/'>Login</Link><br/>
-                <Link to='/dashboard'>Dashboard</Link><br/>
-                <button onClick={this.login}>Login</button><br/>
-                <button onClick={this.logout}>Logout</button>
-            </div>
-        );
-    }
+        const handleChangeEmail = e =>{
+            setEmail(e.target.value)
+        }
+
+        const handleChangePassword = e =>{
+            setPassword(e.target.value)
+        }
+
+        const login = () => {
+            Auth.authenticate(email, password);
+            
+            const user = Cookies.get('user');
+            if(user){
+                props.history.push('/dashboard');
+            }else{
+                props.history.push('/');
+            }
+        }
+
+    return(
+        <form onSubmit = {login}>
+            <input
+                type = "text"
+                placeholder = "email"
+                onChange = {handleChangeEmail}
+                value = {email}
+                required
+            />
+            <input 
+                type = "password"
+                placeholder = "password"
+                onChange = {handleChangePassword}
+                value = {password}
+                required
+            />
+            <input type = "submit" value = "login"/>
+        </form>
+    )
 }
 
 export default Login;

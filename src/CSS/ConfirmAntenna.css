@@ -1,0 +1,23 @@
+.component-row{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    max-width: 960px;
+}
+
+.request_table{
+    text-align: center;
+    width: 50%;
+}
+
+.request_table thead th{
+    background-color: #91BED4;
+}
+
+.request_table tbody tr{
+    background-color: #D9E8F5;
+}
+
+.request_table tbody tr:hover{
+    background-color: #F26101;
+}
