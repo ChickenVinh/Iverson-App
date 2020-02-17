@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 
 //Table: https://www.youtube.com/watch?v=akxsFgM7DPA
 

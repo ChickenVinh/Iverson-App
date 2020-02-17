@@ -5,7 +5,7 @@ import { Route } from 'react-router-dom';
 import NavigationBar from './components/NavigationBar';
 import Dashboard from './components/Dashboard'
 
-import AddAntenna from './components/Antenna/ConfirmAntenna';
+import ConfirmAntenna from './components/Antenna/ConfirmAntenna';
 import MapAntenna from './components/Antenna/MapAntenna';
 import TableAntenna from './components/Antenna/TableAntenna';
 
@@ -18,7 +18,7 @@ const LandingPage = () => {
       <div>
         <NavigationBar />
           <Route path = "/dashboard" exact component = { Dashboard } />
-          <Route path = "/dashboard/add_antenna" exact component = { AddAntenna } />
+          <Route path = "/dashboard/confirm_antenna" exact component = { ConfirmAntenna } />
           <Route path = "/dashboard/map_antenna" exact component = { MapAntenna } />
           <Route path = "/dashboard/table_antenna" exact component = { TableAntenna } />
           <Route path = "/dashboard/add_user" exact component = { AddUser } />
