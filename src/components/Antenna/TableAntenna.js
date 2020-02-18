@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-
+import '../CSS/Dashboard.css'
 
 export default function TableAntenna(){
     const [data, setData] = useState([{}])
@@ -17,7 +17,7 @@ export default function TableAntenna(){
 
     return(
         <div className = "component-row">
-            <table className = "ticket_table">
+            <table className = "table">
                 <thead>
                     <tr>
                         <th>#</th>

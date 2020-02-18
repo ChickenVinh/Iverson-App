@@ -26,7 +26,7 @@ export default function Dashboard(){
 
     return(
         <div className = "component-row">
-            <table className = "ticket_table">
+            <table className = "table">
                 <thead>
                     <tr>
                         <th>#</th>
