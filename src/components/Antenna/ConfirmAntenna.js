@@ -15,11 +15,23 @@ export default function ConfirmAntenna() {
         .then((Json) => {
             setData(Json)
         })
-    },[])
+    },[request])
 
     function selectedRequest(index){
         setRequest(data[index])
-        console.log(request)
+    }
+
+    function handleConfirm(request_id){
+        fetch(`https://vtk-group.tech/scripts/requestLocation.php?request_id=${request_id}&action=confirm`)
+        .then((res) => {
+            console.log(res)
+        })
+    }
+
+    function handleDelete(request_id){
+        fetch(`https://vtk-group.tech/scripts/requestLocation.php?request_id=${request_id}&action=delete`)
+        console.log(request_id + " deleted!")
+        setRequest({})
     }
 
     return(
@@ -28,6 +40,7 @@ export default function ConfirmAntenna() {
                 <thead>
                     <tr>
                         <th>#</th>
+                        <th>Request ID</th>
                         <th>Antenna ID</th>
                         <th>User</th>
                         <th>Confirm</th>
@@ -38,11 +51,12 @@ export default function ConfirmAntenna() {
                         data.map((row, index) => (
                             <tr key = {index} onClick = {() => selectedRequest(index)}>
                                 <td>{index}</td>
+                                <td>{row.request_id}</td>
                                 <td>{row.antenna_id}</td>
                                 <td>{row.user_id}</td>
                                 <td>
-                                    <button>Yes</button>
-                                    <button>No</button>
+                                    <button onClick = { () => handleConfirm(row.request_id)}>Yes</button>
+                                    <button onClick = { () => handleDelete(row.request_id)}>No</button>
                                 </td>
                             </tr>
                         ))
