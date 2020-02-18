@@ -40,7 +40,10 @@ export default function ConfirmAntenna() {
                                 <td>{index}</td>
                                 <td>{row.antenna_id}</td>
                                 <td>{row.user_id}</td>
-                                <td>Button</td>
+                                <td>
+                                    <button>Yes</button>
+                                    <button>No</button>
+                                </td>
                             </tr>
                         ))
                     }

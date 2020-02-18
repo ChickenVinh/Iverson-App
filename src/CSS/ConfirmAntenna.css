@@ -21,3 +21,8 @@
 .request_table tbody tr:hover{
     background-color: #F26101;
 }
+
+.request_table button {
+    margin-right: 10px;
+    margin-left: 10px;
+}
