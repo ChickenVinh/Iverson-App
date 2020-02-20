@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import '../CSS/Dashboard.css'
+import '../../CSS/Dashboard.css'
 
 //Table: https://www.youtube.com/watch?v=akxsFgM7DPA
 

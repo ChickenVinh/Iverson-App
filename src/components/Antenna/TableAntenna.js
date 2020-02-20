@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import '../CSS/Dashboard.css'
+import '../../CSS/Dashboard.css'
 
 export default function TableAntenna(){
     const [data, setData] = useState([{}])
