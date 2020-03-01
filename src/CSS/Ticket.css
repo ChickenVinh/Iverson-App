@@ -4,5 +4,6 @@
     white-space: nowrap;
     display: flex;
     flex-direction: row;
-    width: 400px;
+    /* width: 150px;
+    height: 150px; */
 }

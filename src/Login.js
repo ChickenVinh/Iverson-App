@@ -1,36 +1,54 @@
 import React, {useState, useEffect} from 'react';
 import Auth from './Auth';
 import Cookies from 'js-cookie';
+import './CSS/Login.css'
+import Logo from './components/images/logo.png'
 
 const Login = (props) => {
-        const [email, setEmail] = useState('')
-        const [password, setPassword] = useState('')
+    //sum up 3 useStates to one object ;)
+    const [email, setEmail] = useState('')
+    const [password, setPassword] = useState('')
+    const [response, setResponse] = useState(null)
 
-        useEffect(() => {
-            Cookies.remove('user');
-        }, [])
+    useEffect(() => {
+        Cookies.remove('user');
+    }, [])
 
-        const handleChangeEmail = e =>{
-            setEmail(e.target.value)
+    const handleChangeEmail = e =>{
+        setEmail(e.target.value)
+    }
+
+    const handleChangePassword = e =>{
+        setPassword(e.target.value)
+    }
+
+    const login = () => {
+        console.log("checking credentials")
+        fetch(`https://vtk-group.tech/scripts/login.php?user=${email}&password=${password}`)
+        .then((res) => { 
+            return res.text()
+        })
+        .then((text) => {
+            setResponse(text)
+        })
+
+        if(response !== null && email === response){
+            Auth.authenticate(email);
         }
-
-        const handleChangePassword = e =>{
-            setPassword(e.target.value)
+        
+        const user = Cookies.get('user');
+        if(user){
+            props.history.push('/dashboard');
+        }else{
+            props.history.push('/');
         }
-
-        const login = () => {
-            Auth.authenticate(email, password);
-            
-            const user = Cookies.get('user');
-            if(user){
-                props.history.push('/dashboard');
-            }else{
-                props.history.push('/');
-            }
-        }
+    }
 
     return(
-        <form onSubmit = {login}>
+        <div className = "login-form">
+            <div className = "img-container">
+                <img alt= "login image" src = {Logo}/>
+            </div>
             <input
                 type = "text"
                 placeholder = "email"
@@ -45,8 +63,8 @@ const Login = (props) => {
                 value = {password}
                 required
             />
-            <input type = "submit" value = "login"/>
-        </form>
+            <button onClick = {login}>Login</button>
+        </div>
     )
 }
 

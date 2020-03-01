@@ -1,9 +1,8 @@
 import Cookies from 'js-cookie'
 
 const Auth = {
-    authenticate() {
-      //send cre to server and validate
-      Cookies.set('user', 'user')
+    authenticate(email) {
+      Cookies.set('user', email)
       this.isAuthenticated = true;
     },
     getAuth() {
